@@ -13,7 +13,7 @@ def insert_rows(cur, conn, schema, row):
 
             cur.execute(
                 f"""
-                INSERT INTO {schema}.{table}("Video_ID", "Video_Title", "Upload_Date", "Duration", "Video_Views", "Likes_Count", "comments_count")
+                INSERT INTO {schema}.{table}("Video_ID", "Video_Title", "Upload_Date", "Duration", "Video_Views", "Likes_Count", "Comments_Count")
                 VALUES (%(video_id)s, %(title)s, %(publishedAt)s, %(duration)s, %(viewCount)s, %(likeCount)s, %(commentCount)s);
                 """,
                 row,
@@ -24,8 +24,8 @@ def insert_rows(cur, conn, schema, row):
 
             cur.execute(
                 f"""
-                INSERT INTO {schema}.{table}("Video_ID", "Video_Title", "Upload_Date", "Duration", "Video_Type", "Video_Views", "Likes_Count", "comments_count")
-                VALUES (%(Video_ID)s, %(Video_Title)s, %(Upload_Date)s, %(Duration)s, %(Video_Type)s, %(Video_Views)s, %(Likes_Count)s, %(comments_count)s)
+                INSERT INTO {schema}.{table}("Video_ID", "Video_Title", "Upload_Date", "Duration", "Video_Type", "Video_Views", "Likes_Count", "Comments_Count")
+                VALUES (%(Video_ID)s, %(Video_Title)s, %(Upload_Date)s, %(Duration)s, %(Video_Type)s, %(Video_Views)s, %(Likes_Count)s, %(Comments_Count)s)
                 """,
                 row,
             )
@@ -56,7 +56,7 @@ def update_rows(cur, conn, schema, row):
             video_title = "Video_Title"
             video_views = "Video_Views"
             likes_count = "Likes_Count"
-            comments_count = "comments_count"
+            comments_count = "Comments_Count"
 
         cur.execute(
             f"""
@@ -64,7 +64,7 @@ def update_rows(cur, conn, schema, row):
             SET "Video_Title" = %({video_title})s,
                 "Video_Views" = %({video_views})s,
                 "Likes_Count" = %({likes_count})s,
-                "comments_count" = %({comments_count})s
+                "Comments_Count" = %({comments_count})s
             WHERE "Video_ID" = %({video_id})s AND "Upload_Date" = %({upload_date})s;
             """,
             row,
