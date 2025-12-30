@@ -17,7 +17,7 @@ def test_dags_integrity(dagbag):
     print("===============")
     print(dagbag.import_errors)
 
-    expected_dag_ids = ["produce_json", "update_db"]
+    expected_dag_ids = ["produce_json", "update_db", "data_quality"]
     loaded_dag_ids = list(dagbag.dags.keys())
     print("================")
     print(dagbag.dags.keys())
@@ -26,7 +26,7 @@ def test_dags_integrity(dagbag):
         assert dag_id in loaded_dag_ids, f"DAG {dag_id} is missing."
 
 
-    assert dagbag.size() == 2
+    assert dagbag.size() == 3
     print("================")
     print(dagbag.size())
 
