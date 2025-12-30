@@ -14,4 +14,4 @@ checks for yt_api:
       comments_count_greater_than_vid_views query: |
         SELECT COUNT(*) 
         FROM yt_api 
-        WHERE "comments_count" > "Video_Views"
+        WHERE "Comments_Count" > "Video_Views"
